@@ -41,7 +41,16 @@ const DataBase = () => {
   
   }, [])
 
-  
+  const headers = [
+    "Date",
+    "Time",
+    "Meter",
+    "Date",
+    "Time",
+    "Meter",
+    "Acre/Feet",
+    "Inches/Acre"
+  ]
 
   return (
     <Col sm="12" md={{ size: 10, offset: 2}}>
@@ -86,7 +95,21 @@ const DataBase = () => {
             <th>Result</th>
           </tr>
         </thead>
-        <thead>
+        
+        {
+          headers.map(header => (
+            <tr >
+              <th>{header}</th>
+              
+
+            </tr>
+          ))
+        }
+
+      
+        
+        {/* <thead>
+
           <tr>
             <th>Date</th>
             <th>Time</th>
@@ -97,7 +120,7 @@ const DataBase = () => {
             <th>Acre/Feet</th>
             <th>Inches/Acre</th>
           </tr>
-        </thead>
+        </thead> */}
         <tbody>
           {!!data &&
             data.map(data => (
