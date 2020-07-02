@@ -148,7 +148,7 @@ const FormInterface = (props) => {
         </Row>
         <hr/>
         <Row form >
-          <Col md="3 offset-1">
+          <Col md={3}>
             <FormGroup>
               <Label>Acre/Feet</Label>
               {/* <Input readOnly type="number" name="acre-feet" value={field.acreFeet} id="acreFeet" onSubmit={setField}/> */}
