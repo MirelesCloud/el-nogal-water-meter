@@ -141,6 +141,9 @@ const FormInterface = (props) => {
         <Row>
           <Col md={12}>
             <CardTitle tag="h3" className="mt-3">Result</CardTitle>
+            <div>
+              <small>Meter Reading in Acre-Feet x .01: Water Pumped, Ac-In = (Ending Meter Reading - Beginning Meter Reading) x 12/100 - Divide by acres in field to get inches applied per acre.</small>
+            </div>
           </Col>
         </Row>
         <hr/>

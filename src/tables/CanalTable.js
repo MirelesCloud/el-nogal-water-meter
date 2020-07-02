@@ -59,7 +59,7 @@ const CanalTable = () => {
     <Row>
       <Col sm="12" md={{ size: 10, offset: 1}}>
         <div className="container mt-5">
-          <Table>
+          <Table style={{fontSize: "12px"}}>
             <thead>
               <tr>
                 {legend.map((item, idx)=> (
