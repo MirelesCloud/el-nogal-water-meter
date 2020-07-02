@@ -21,25 +21,36 @@ const DataBase = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [field, setField] = useForm({
-    start: "",
-    timeStart: 0,
-    meterStart: 0,
-    end: "",
-    timeEnd: 0,
-    meterEnd: 0
+    start: 0,
+    end: 0,
+    startDate: "",
+    endDate: "",
+    startTime: "",
+    endTime: ""
+    
   })
+  
  
 
   useEffect( () => {
     setIsLoading(true)
     const fetchData = async () => {
       const result = await api.getAllMeters()
-      .then(result => setData(result.data.data), setIsLoading(false))
+      .catch(error => error)
+
+      if(result instanceof Error) {
+        console.log(Error)
+      } else {
+        setData(result.data.data)
+      }
+
   
     }
     fetchData()
   
   }, [])
+
+  console.log(data)
 
   const headers = [
     "Date",
@@ -125,12 +136,12 @@ const DataBase = () => {
           {!!data &&
             data.map(data => (
             <tr key={data._id}>
+              <td>{data.startDate}</td>
+              <td>{data.startTime}</td>
               <td>{data.start}</td>
-              <td>{data.timeStart}</td>
-              <td>{data.meterStart}</td>
+              <td>{data.endDate}</td>
+              <td>{data.endTime}</td>
               <td>{data.end}</td>
-              <td>{data.timeEnd}</td>
-              <td>{data.meterEnd}</td>
               <td>{data.acreFeet}</td>
               <td>{data.inchesPerAcre}</td>
               <td>

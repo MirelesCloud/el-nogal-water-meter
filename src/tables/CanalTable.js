@@ -6,9 +6,9 @@ import {
   Table,
   ButtonGroup 
 } from 'reactstrap';
-import api from './api'
+import api from '../api'
 
-const DBTable = () => {
+const CanalTable = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
@@ -17,8 +17,14 @@ const DBTable = () => {
   useEffect( () => {
     setIsLoading(true)
     const fetchData = async () => {
-      const result = await api.getAllMeters()
-      .then(result => setData(result.data.data), setIsLoading(false))
+      const result = await api.getAllCanalMeters()
+        .catch(error => error)
+
+        if(result instanceof Error) {
+          console.log(Error)
+        } else {
+          setData(result.data.data)
+        }
   
     }
     fetchData()
@@ -78,12 +84,12 @@ const DBTable = () => {
               {!!db &&
                 db.reverse().map(data => (
                 <tr key={data._id}>
+                  <td>{data.startDate}</td>
+                  <td>{data.startTime}</td>
                   <td>{data.start}</td>
-                  <td>{data.timeStart}</td>
-                  <td>{data.meterStart}</td>
+                  <td>{data.endDate}</td>
+                  <td>{data.endTime}</td>
                   <td>{data.end}</td>
-                  <td>{data.timeEnd}</td>
-                  <td>{data.meterEnd}</td>
                   <td>{data.acreFeet}</td>
                   <td>{data.inchesPerAcre}</td>
                   <td>{data.hours}</td>
@@ -108,4 +114,4 @@ const DBTable = () => {
   )
 }
 
-export default DBTable
+export default CanalTable

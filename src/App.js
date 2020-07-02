@@ -29,12 +29,12 @@ const useForm = (props) => {
 function App() {
   const [activeTab, setActiveTab] = useState('1')
   const [field ] = useForm({
-    start: "",
-    timeStart: "",
-    meterStart: "",
-    end: "",
-    timeEnd: "",
-    meterEnd: "",
+    start: 0,
+    end: 0,
+    startDate: "",
+    endDate: "",
+    startTime: "",
+    endTime: "",
     acres: "",
     inchesPerAcre: "",
     acreFeet: "",
