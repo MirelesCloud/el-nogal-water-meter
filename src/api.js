@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://warm-citadel-66982.herokuapp.com'
+  baseURL: 'http://localhost:4000'
 })
 
 export const insertMeter = payload => api.post(`/well/meter`, payload)

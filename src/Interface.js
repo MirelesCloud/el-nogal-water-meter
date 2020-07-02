@@ -31,9 +31,15 @@ console.log(props)
    setResult(field.inchesPerAcre, field.acreFeet, field.hours)
  })
 
+ const handleSubmit = e => {
+  e.preventDefault()
+  api.insertMeter(field)
+  window.location.reload()
+}
+
   return (
     <CardBody>
-      <Form onSubmit={props.handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Row form>
           <Col md={4}>
             <FormGroup>

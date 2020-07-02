@@ -10,12 +10,8 @@ import api from '../api'
 
 const CanalTable = () => {
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-
-  
 
   useEffect( () => {
-    setIsLoading(true)
     const fetchData = async () => {
       const result = await api.getAllCanalMeters()
         .catch(error => error)
@@ -98,7 +94,7 @@ const CanalTable = () => {
                      {/*  <Button color="success" size="sm">Edit</Button> */}
                       <Button close className="text-danger" size="sm" onClick={() => {
                         if (window.confirm('Are you sure you want to delete this entry?')) {
-                          api.deleteMeterById(data._id); 
+                          api.deleteCanalMeterById(data._id); 
                         }
                         window.location.reload()}
                         }/>

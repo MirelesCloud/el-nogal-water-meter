@@ -10,12 +10,10 @@ import api from '../api'
 
 const WellTable = () => {
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
 
   
 
   useEffect( () => {
-    setIsLoading(true)
     const fetchData = async () => {
       const result = await api.getAllMeters()
         .catch(error => error)

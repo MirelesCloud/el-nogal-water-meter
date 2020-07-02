@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Interface from './Interface'
+import api from './api'
 import CanalTable from './tables/CanalTable'
 import { 
   Card,
@@ -22,7 +22,6 @@ const Canal = ( props ) => {
   const field = props.field
   
   const calculate = ( meterEnd, meterStart, acres, start, end, timeStart, timeEnd ) => {
-    console.log(start)
     const inchesPerAcre = (((meterEnd-meterStart)*(12/100))/acres).toFixed(1);
     const acreFeet = ((meterEnd-meterStart)*(.01)).toFixed(1)
     let dt1 = new Date(start + " " + timeStart);
@@ -68,23 +67,26 @@ const FormInterface = (props) => {
   let { start, end, startDate, endDate, startTime, endTime, acres,  inchesPerAcre, acreFeet, hours} = field
   let calculate = props.calculate
 
-console.log(props)
- const click = () => {
-    calculate(start, end, acres, startDate, endDate, startTime, endTime)
- }
+  const click = () => {
+      calculate(start, end, acres, startDate, endDate, startTime, endTime)
+  }
 
-  useEffect(() => {
-    field.inchesPerAcre = props.result[0]
-    field.acreFeet = props.result[1]
-    field.hours = props.result[2] || null
-   setResult(field.inchesPerAcre, field.acreFeet, field.hours)
- })
+    useEffect(() => {
+      field.inchesPerAcre = props.result[0]
+      field.acreFeet = props.result[1]
+      field.hours = props.result[2] || null
+    setResult(field.inchesPerAcre, field.acreFeet, field.hours)
+  }, [field.inchesPerAcre, field.acreFeet, field.hours, props.result])
 
- const handleSubmit = e => {
-   e.preventDefault()
-   props.api.insertCanalMeter(field)
-   window.location.reload()
- }
+  console.log(result)
+  
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    api.insertCanalMeter(field)
+    window.location.reload()
+    
+  }
 
   return (
     <CardBody>

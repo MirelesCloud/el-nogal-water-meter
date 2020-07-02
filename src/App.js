@@ -29,8 +29,8 @@ const useForm = (props) => {
 function App() {
   const [activeTab, setActiveTab] = useState('1')
   const [field ] = useForm({
-    start: 0,
-    end: 0,
+    start: "",
+    end: "",
     startDate: "",
     endDate: "",
     startTime: "",
