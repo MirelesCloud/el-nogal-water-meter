@@ -114,25 +114,25 @@ const FormInterface = (props) => {
         <Row form >
           <Col md={3}>
             <FormGroup >
-              {/*  <Label>Start Date</Label> */}
+              <Label><small>Start Date</small></Label>
               <Input placeholder="Start Date "type="date"  bsSize="sm" name="date-start" value={startDate} id="startDate" onChange={setField}></Input>
             </FormGroup>
           </Col>
           <Col md={3}>
             <FormGroup>
-              {/*  <Label>Time Start</Label> */}
+             <Label><small>Time Start</small></Label>
               <Input type="time" placeholder="Start Time" bsSize="sm" name="time-start" value={startTime} id="startTime" onChange={setField}></Input>
             </FormGroup>
           </Col>
             <Col md={3}>
             <FormGroup >
-              {/*  <Label>End Date</Label> */}
+            <Label><small>End Date</small></Label>
               <Input type="date"  bsSize="sm" name="date-end" value={endDate} id="endDate" onChange={setField}></Input>
             </FormGroup>
           </Col>
           <Col md={3}>
             <FormGroup>
-            {/*   <Label>Time End</Label> */}
+            <Label><small>Time End</small></Label>
               <Input type="time" bsSize="sm" name="time-end" value={endTime} id="endTime" onChange={setField}></Input>
             </FormGroup>
           </Col>
